@@ -3,12 +3,12 @@
 ## VIM
 In order to fully utilize my vimrc you should install Vundle plugin manager.
 After that, open vim and type:
-	:PluginInstall
+	`:PluginInstall`
 
 It should install properly all of the plugins I have listed inside my vimrc.
 I won't list the plugins I use here, you can check them our yourself inside the rc
 file, they are listed in format for Vundle:
-	Plugin 'xxxx/yyyy'
+	`Plugin 'xxxx/yyyy'`
 
 Where `xxxx` is the GitHub repo for the plugin, and `yyyy` the plugin name.
 
@@ -18,7 +18,7 @@ requires additional steps in order to work. Make sure to read docs in order to s
 ### Most used
 Some of the cool stuff I use all the time:
 * `ctrl+n` (allows you to select multiple occurences of symbol, you can rename it then with `c`)
-* `ctrl+p` (opens up fuzzy search like in [sublime editor](http://docs.sublimetext.info/en/latest/file_management/file_management.html)
+* `ctrl+p` (opens up fuzzy search like in [sublime editor](http://docs.sublimetext.info/en/latest/file_management/file_management.html))
 * `leader+f` (opens up nerd tree file system browser)
 * `f2` (toggle paste mode)
 * `f4` (switches between `.cpp` and `.hpp` files)
