@@ -1,6 +1,6 @@
 " WHOAMI?
-let g:username = "Nemanja Mićović"
-let g:email = "nmicovic@outlook.com"
+let g:username = "Your Name"
+let g:email = "your@email.com"
 
 " Leader button
 let mapleader="\<Space>"
