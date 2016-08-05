@@ -7,10 +7,8 @@ After that, open vim and type:
 
 It should install properly all of the plugins I have listed inside my vimrc.
 I won't list the plugins I use here, you can check them our yourself inside the rc
-file, they are listed in format for Vundle:
-	`Plugin 'xxxx/yyyy'`
-
-Where `xxxx` is the GitHub repo for the plugin, and `yyyy` the plugin name.
+file. They are listed in format for Vundle: `Plugin 'xxxx/yyyy'` 
+where `xxxx` is the GitHub repo for the plugin, and `yyyy` the plugin name.
 
 Please note that [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) plugin
 requires additional steps in order to work. Make sure to read docs in order to set it up.
