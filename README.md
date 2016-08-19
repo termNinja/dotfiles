@@ -1,19 +1,19 @@
 # dotfiles
 
-## VIM
+## Vim
 In order to fully utilize my vimrc you should install Vundle plugin manager.
 After that, open vim and type:
 	`:PluginInstall`
 
 It should install properly all of the plugins I have listed inside my vimrc.
 I won't list the plugins I use here, you can check them our yourself inside the rc
-file. They are listed in format for Vundle: `Plugin 'xxxx/yyyy'` 
+file. They are listed in format for Vundle: `Plugin 'xxxx/yyyy'`
 where `xxxx` is the GitHub repo for the plugin, and `yyyy` the plugin name.
 
 Please note that [YouCompleteMe](https://github.com/Valloric/YouCompleteMe) plugin
 requires additional steps in order to work. Make sure to read docs in order to set it up.
 
-### Most used
+#### Most used
 Some of the cool stuff I use all the time:
 * `ctrl+n` (allows you to select multiple occurences of symbol, you can rename it then with `c`)
 * `ctrl+p` (opens up fuzzy search like in [sublime editor](http://docs.sublimetext.info/en/latest/file_management/file_management.html))
@@ -25,9 +25,8 @@ Some of the cool stuff I use all the time:
 * `leader+hl` (turns off highlighted item)
 * `leader+rc` (reload vimrc)
 
-### font
-Font I use is called **Terminess Powerline** (modification of Terminus font with powerline symbols).
-You can find github repo [here](https://github.com/powerline/fonts).
+## tmux
+I am no [tmux](https://tmux.github.io/) expert so nothing complex here, just some vim like bindings.
 
 ## i3
 Make sure to have the following installed:
@@ -38,3 +37,8 @@ Make sure to have the following installed:
 I would recommend watching videos [1](https://www.youtube.com/watch?v=j1I63wGcvU4),
 [2](https://www.youtube.com/watch?v=8-S0cWnLBKg) and [3](https://www.youtube.com/watch?v=ARKIwOlazKI)
 in order to set up your own i3.
+
+### font
+Font I use is called **Terminess Powerline** (modification of Terminus font with powerline symbols).
+You can find github repo [here](https://github.com/powerline/fonts).
+

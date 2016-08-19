@@ -1,30 +1,42 @@
-" WHOAMI?
-let g:username = "Your Name"
-let g:email = "your@email.com"
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" 		 	                                    /   \
+" 		 	   _                        )      ((   ))     (
+" 		 	  (@)                      /|\      ))_((     /|\
+" 		 	  |-|                     / | \    (/\|/\)   / | \                      (@)
+" 		 	  | | -------------------/--|-voV---\`|'/--Vov-|--\---------------------|-|
+" 		 	  |-|                         '^`   (o o)  '^`                          | |
+" 		 	  | |                               `\Y/'                               |-|
+" 		 	  |-|                                                                   | |
+" 		 	  | | 					2016 termninja github.com/termninja             |-|
+" 		 	  |-|                                                                   | |
+" 		 	  | |                                                                   |-|
+" 		 	  |_|___________________________________________________________________| |
+" 		 	  (@)                 l   /\ /      ( (       \ /\   l                `\|-|
+" 		 	                      l /   V        \ \       V   \ l                  (@)
+" 		 	                      l/             _) )_          \I
+" 		 	                                     `\ /'
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+let g:username = "termninja"
+let g:email = "your email here"
 
 " Leader button
 let mapleader="\<Space>"
 
-" ---------------------------------------------------------------------------------------
-" 									Vundle init
-" ---------------------------------------------------------------------------------------
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" Vundle init (my plugin manager)
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+set nocompatible              				" be iMproved
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-" ---------------------------------------------------------------------------------------
-" 									** PLUGINS **
-" ---------------------------------------------------------------------------------------
 
-" ---------------------------------------------------------------------------------------
-" SuperTab plugin -> for handling integration between ultisnip and ycm
-" ---------------------------------------------------------------------------------------
-Plugin 'ervandew/supertab'
-
-" ---------------------------------------------------------------------------------------
-" YouCompleteMe
-" ---------------------------------------------------------------------------------------
+" 										*-*-*-*-*-*-*-*-*
+" 										*-PLUGINS START-*
+" 										*-*-*-*-*-*-*-*-*
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" YouCompleteMe (with relevant tweaks)
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 Plugin 'Valloric/YouCompleteMe'				" you complete me baby
 let g:ycm_key_list_select_completion = ['<Down>','<c-k>']
 let g:ycm_key_list_previous_completion = ['<Up>','<c-j>']
@@ -47,129 +59,122 @@ let g:ycm_always_populate_location_list = 1
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
 nnoremap <C-]> <Esc>:YcmCompleter GoToDefinitionElseDeclaration<CR>|
 inoremap <C-]> <Esc>:YcmCompleter GoToDefinitionElseDeclaration<CR>
-" ---------------------------------------------------------------------------------------
-" FileTemplates
-" ---------------------------------------------------------------------------------------
-Plugin 'aperezdc/vim-template'
 
 " ---------------------------------------------------------------------------------------
-" Colorcheme plugins
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" Autocomplete and similar features
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " ---------------------------------------------------------------------------------------
-set background=dark
-Plugin 'chriskempson/base16-vim' 			" base16-*
-" Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
-Plugin 'justinmk/vim-syntax-extra'
-Plugin 'w0ng/vim-hybrid'
-" ---------------------------------------------------------------------------------------
-" Converts GVim themes into terminal colors
-" ---------------------------------------------------------------------------------------
-Plugin 'vim-scripts/CSApprox'
+Plugin 'm2mdas/phpcomplete-extended'
+Plugin 'm2mdas/phpcomplete-extended-laravel'
+Plugin 'jwalton512/vim-blade'
+" Plugin 'ternjs/tern_for_vim'				" tern complete for javascript (I use YCM)
+" Plugin 'scrooloose/syntastic'				" Syntastic syntax checker
 
-" ---------------------------------------------------------------------------------------
-" Some other stuff...
-" ---------------------------------------------------------------------------------------
-Plugin 'rdnetto/YCM-Generator'				" YCM flag generator
-" Plugin 'scrooloose/syntastic'				" syntastic syntax checker
-Plugin 'flazz/vim-colorschemes'				" colorschemes
-" Plugin 'easymotion/vim-easymotion'			" easymotion
-Plugin 'scrooloose/nerdtree'				" Nerdtree
-Plugin 'scrooloose/nerdcommenter'			" Commenting engine
-Plugin 'shime/vim-livedown'					" md preview
-" Plugin 'ternjs/tern_for_vim'				" tern complete for javascript
+" Use completephp plugin for PHP autocomplete
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+
+
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" Visual
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Plugin 'flazz/vim-colorschemes'				" lots of colorschemes
+Plugin 'chriskempson/base16-vim' 			" Lots of base16 themes
+Plugin 'justinmk/vim-syntax-extra' 			" Support for bison, flex and c
+Plugin 'w0ng/vim-hybrid' 					" Hybrid theme
+Plugin 'roosta/srcery' 						" Interesting dark theme (no term support)
+Plugin 'octol/vim-cpp-enhanced-highlight' 	" better synt.col.supp for cpp
 Plugin 'vim-airline/vim-airline'			" vim airline statusbar
 Plugin 'vim-airline/vim-airline-themes'		" themes for airline
-Plugin 'miyakogi/conoline.vim' 				" adds an awesome current line cursor
-" Plugin 'Shougo/vimproc'
-" Plugin 'Shougo/unite.vim'
-" Plugin 'm2mdas/phpcomplete-extended'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'octol/vim-cpp-enhanced-highlight' 	" better synt.col.supp for cpp
+Plugin 'airblade/vim-gitgutter' 			" git indicator about file changes
 Plugin 'hdima/python-syntax' 				" better synt.col.supp. for py
-Plugin 'terryma/vim-multiple-cursors' 		" multiple cursors like Sublime Editor
-Plugin 'airblade/vim-gitgutter' 			" vim gutter near line numbers
+Plugin 'vim-scripts/CSApprox' 				" convert theme to terminal colors
+Plugin 'mhinz/vim-startify' 				" fancy startscreen for vim
+" Plugin 'miyakogi/conoline.vim' 			" smart highlight of current line
 
-" ---------------------------------------------------------------------------------------
-" ULTISNIPS
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" Additional plugins
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Plugin 'aperezdc/vim-template' 				" File templates
+Plugin 'rdnetto/YCM-Generator'				" YCM flag generator
+" Plugin 'easymotion/vim-easymotion'			" easymotion <3
+Plugin 'scrooloose/nerdtree'				" Nerdtree file browser
+Plugin 'scrooloose/nerdcommenter'			" Commenting engine
+Plugin 'shime/vim-livedown'					" md preview, invoke with :LivedownPreview
+Plugin 'Shougo/vimproc' 					" asynchronous library (used by other plugins)
+" Plugin 'Shougo/unite.vim'
+Plugin 'ctrlpvim/ctrlp.vim' 				" fuzzy search inspired by sublime
+Plugin 'terryma/vim-multiple-cursors' 		" multiple cursors like Sublime Editor
+Plugin 'reedes/vim-wordy' 					" check words in dictionary
+
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" Code snippets with relevant configurations
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'ervandew/supertab' 					" handles conflicts betweens snippets and YCM
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" Trigger configuration. Do not use <tab> if you use 'Valloric/YouCompleteMe'.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-" *****************************************************************************
 
-set laststatus=2
-let g:airline_theme="behelit"
-" *****************************************************************************
-
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+"  										*-*-*-*-*-*-*-*
+"  										*-PLUGINS END-*
+"  										*-*-*-*-*-*-*-*
 "
-" --------------------------------------------------------------------------------------------
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " My configz
-" --------------------------------------------------------------------------------------------
-" good ones: base16-atelierdune, badwolf, base16-summerfruit, hybrid
-colorscheme base16-atelierforest
-syntax on
-set number
-set hlsearch
-set incsearch 				" shows results as you type the search
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" good themes: base16-atelierdune base16-atelierforest, badwolf, base16-summerfruit, hybrid
+set background=dark
+colorscheme hybrid
+let g:airline_theme="behelit"
+syntax on 									" give us some syntax highlighting!
+filetype on
+filetype plugin on
+set number 									" show line numbers
+set hlsearch 								" highligh search results
+set incsearch 								" shows results as you type the search
 set shiftwidth=4
+set laststatus=2
 set tabstop=4
-set t_Co=256				" sets 256 colors onto term
-set undofile
+set t_Co=256								" sets 256 colors onto term
+set undofile 								" make undo files
 set cindent
 set smartindent
 set autoindent
 set backspace=indent,eol,start
 set cursorline
-set scrolloff=6      " Always show a few lines below and above the current one
-set wildmenu         " Tab completion for the commands
-set completeopt=menu " Completions in menus
-set nowrap           " Never wrap the text
+set scrolloff=6      						" Always show a few lines below and above the current one
+set wildmenu         						" Tab completion for the commands
+set completeopt=menu 						" Completions in menus
+set nowrap           						" Never wrap the text
 
 " make vim remember last cursor position when editing file
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-
-" Status line options
-set laststatus=2
-
-" completion popups
-
-" -----------------------------------------------------------------------------
-" Files to be ignored
-" -----------------------------------------------------------------------------
-set wildignore+=*.o,*.obj,build,build-*,.*.swp,.*.swo
-set wildignore+=*.pyc,*.class,*.jar,*~
-set wildignore+=.git,.svn
-set wildignore+=project/target/**,target/**
-set wildignore+=GPATH,GRTAGS,GSYMS,GTAGS
-
-" -----------------------------------------------------------------------------
-" GUI settings
-" -----------------------------------------------------------------------------
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" GUI specific settings
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 if has('gui_running')
 	set autochdir
 	set guifont=Terminess\ Powerline\ 11
 	let &t_SI = "\<Esc>[5 q"
 	let &t_EI = "\<Esc>[1 q"
-	" good ones: base16-atelierdune, badwolf
-	colorscheme base16-atelierforest
+	colorscheme hybrid
 endif
-" -----------------------------------------------------------------------------
 
-filetype on
-filetype plugin on
-" --------------------------------------------------------------------------------------------
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Default settings for syntastic
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
@@ -178,16 +183,27 @@ filetype plugin on
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
-" --------------------------------------------------------------------------------------------
 
-" CTRL+P plugin
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" Additional plugin settings
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+" -------------------------------------------------------------------------------------------------
+" fuzzy search plugin additional settings
+" -------------------------------------------------------------------------------------------------
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip		" files to be ignored
+set wildignore+=*.o,*.obj,build,build-*,.*.swp,.*.swo
+set wildignore+=*.pyc,*.class,*.jar,*~
+set wildignore+=.git,.svn
+set wildignore+=project/target/**,target/**
+set wildignore+=GPATH,GRTAGS,GSYMS,GTAGS
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip		" files to be ignored when searching
 
-" EASYMOTION settings
-" --------------------------------------------------------------------------------------------
+" -------------------------------------------------------------------------------------------------
+" Easymotion settings
+" -------------------------------------------------------------------------------------------------
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
@@ -204,22 +220,22 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-" --------------------------------------------------------------------------------------------
 
+" -------------------------------------------------------------------------------------------------
+" Nerdtree settings
+" -------------------------------------------------------------------------------------------------
 " Make nerdtree start if no file was specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"
 " close nerdtree if it's the only open window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-"ino <tab> <c-r>=TriggerSnippet()<cr>
-"snor <tab> <esc>i<right><c-r>=TriggerSnippet()<cr>
-"imap <C-J> <Plug>snipMateNextOrTrigger :smap <C-J> <Plug>snipMateNextOrTrigger
-"let g:snips_trigger_key = '<C-\>'
-
+" -------------------------------------------------------------------------------------------------
 " make YCM comptaible with ultisnips with supertabs
+" -------------------------------------------------------------------------------------------------
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-n>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -236,21 +252,27 @@ let g:conoline_use_colorscheme_default_normal=1
 
 "let g:syntastic_python_python_exec = '/usr/bin/python2'
 
-"" CTRL+P fuzzy search
+" -------------------------------------------------------------------------------------------------
+" CTRL+P fuzzy search
+" -------------------------------------------------------------------------------------------------
 let g:ctrlp_working_path_mode = 'wr'
 
-"" Settings for cpp syntax highlgher
+" -------------------------------------------------------------------------------------------------
+" Settings for cpp syntax highlgher
+" -------------------------------------------------------------------------------------------------
 let g:cpp_class_scope_highlight = 1 			" enable class scope highlighting
 let g:cpp_experimental_template_highlight = 1 	" enable template highlight
 
-"" Settings for python syntax highlighter
+" -------------------------------------------------------------------------------------------------
+" Settings for python syntax highlighter
+" -------------------------------------------------------------------------------------------------
 let g:python_version_2 = 1
 let g:python_highlight_all = 1
 let g:airline_powerline_fonts = 1
 
-" =-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=
-" $$ BINDS $$
-" -=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" Custom binds
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " useful binds for switching tabs
 map  <C-Tab>     <Esc>:tabnext<CR>
 imap <C-Tab>     <Esc>:tabnext<CR>
@@ -262,43 +284,41 @@ map  <S-Left>    <Esc>:tabprev<CR>
 imap <S-Left>    <Esc>:tabprev<CR>
 
 " additional binds for saving, quiting...
-nnoremap <Leader>s    <Esc>:wa<CR>|   "" Save everything
+nnoremap <Leader>s    <Esc>:wa<CR>|   			"" Save everything
 inoremap <S-Leader>s  <Esc>:wa<CR>
 nnoremap <S-Leader>s  <Esc>:wa<CR>
 
-nnoremap <Leader>q    <Esc>:q<CR>|    "" Quit vim
+nnoremap <Leader>q    <Esc>:q<CR>|    			"" Quit vim
 inoremap <S-Leader>q  <Esc>:q<CR>
 nnoremap <S-Leader>q  <Esc>:q<CR>
 
-nnoremap <Leader>x    <Esc>:x<CR>|    "" Save and quit vim
+nnoremap <Leader>x    <Esc>:x<CR>|    			"" Save and quit vim
 inoremap <S-Leader>x  <Esc>:x<CR>
 nnoremap <S-Leader>x  <Esc>:x<CR>
 
 " reloading vimrc
-map <Leader>rc :source ~/.vimrc<CR>
-
+nnoremap <Leader>rc :source ~/.vimrc<CR>
 
 " This allows vim to jump from header/definiton into defintion/header
+" (TODO: Find a suitable plugin for this maybe?)
 map <F4> :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
 map <Leader><F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 map <F3> :e %:p:s,.h$,.X123X,:s,.c$,.h,:s,.X123X$,.c,<CR>
 
-" self explanatory...
 set pastetoggle=<F2>
 
-" turns on pate mode, pastes content of clipboard, turns of paste mode
-map <Leader>p <F2> <-o> <C-r>+ <F2>
-
-" turn of highlight
+" turn off highlight for search results
 map <Leader>hl :nohlsearch<CR>
 
+" toggle file browser
 map <Leader>f :NERDTreeToggle<CR>
-map <Leader>m :w<CR> :make<CR>
+
 
 " Compiling, checking errors etc.
 nnoremap <F5> :w<CR> :make<CR>:! ./dragon<CR>
 nnoremap <Leader>c :! make clean<CR>
 nnoremap <Leader>e :copen<CR>
- "map <Leader>x :clo<CR>
+"map <Leader>x :clo<CR>
 nnoremap <Leader>n :cn<CR>
 nnoremap <Leader>p :cp<CR>
+
