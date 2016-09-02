@@ -16,8 +16,8 @@
 " 		 	                      l/             _) )_          \I
 " 		 	                                     `\ /'
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-let g:username = "termninja"
-let g:email = "your email here"
+let g:username = "your username"
+let g:email = "your mail"
 
 " Leader button
 let mapleader="\<Space>"
@@ -131,9 +131,9 @@ filetype plugin indent on    " required
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " My configz
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-" good themes: base16-atelierdune base16-atelierforest, badwolf, base16-summerfruit, hybrid
+" good themes: base16-atelierdune base16-atelierforest, badwolf, base16-summerfruit, hybrid, onedark
 set background=dark
-colorscheme hybrid
+colorscheme onedark
 let g:airline_theme="behelit"
 syntax on 									" give us some syntax highlighting!
 filetype on
@@ -169,7 +169,7 @@ if has('gui_running')
 	set guifont=Terminess\ Powerline\ 11
 	let &t_SI = "\<Esc>[5 q"
 	let &t_EI = "\<Esc>[1 q"
-	colorscheme hybrid
+	colorscheme onedark
 endif
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
