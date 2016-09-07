@@ -1,0 +1,152 @@
+" --------------------------------------------------------------|======|======*
+" 						EXAM vimrc, good luck ninja!
+" --------------------------------------------------------------|======|======*
+
+" --------------------------------------------------------------|======|======*
+" Keyboard mappings, utils
+" --------------------------------------------------------------|======|======*
+map  <C-Tab>     <Esc>:tabnext<CR>
+imap <C-Tab>     <Esc>:tabnext<CR>
+map  <S-C-Tab>   <Esc>:tabprev<CR>
+imap <S-C-Tab>   <Esc>:tabprev<CR>
+map  <S-Right>   <Esc>:tabnext<CR>
+imap <S-Right>   <Esc>:tabnext<CR>
+map  <S-Left>    <Esc>:tabprev<CR>
+imap <S-Left>    <Esc>:tabprev<CR>
+let mapleader="\<Space>"
+
+" nmap <F2> :w<CR>
+" imap <F2> <ESC>:w<CR>i
+
+map <Leader>rc :source ~/.vimrc<CR>
+map <Leader>hl :nohlsearch<CR>
+map <Leader>m :make<CR>
+
+" Let's you switch between header and source files
+map <F4> :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
+set pastetoggle=<F2>
+
+" and the god said let there be utf8
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
+
+set nocompatible 		" vi is cool but vim is IMPROVED :D
+set laststatus=2
+
+" Files to be ignored
+set wildignore+=*.o,*.obj,build,build-*,.*.swp,.*.swo
+set wildignore+=*.pyc,*.class,*.jar,*~
+set wildignore+=.git,.svn
+set wildignore+=project/target/**,target/**
+set wildignore+=GPATH,GRTAGS,GSYMS,GTAGS
+
+" --------------------------------------------------------------|======|======*
+" Basic settings
+" --------------------------------------------------------------|======|======*
+syntax on
+set t_Co=256 							" oh holiest of all, give me some color!
+set shiftwidth=4
+set tabstop=4
+set cindent
+set smartindent
+set autoindent 
+set number
+set textwidth=120
+set showmatch
+set comments=sl:/*,mb:\ *,elx:\ */
+set cinoptions+=g0 						" dont' indent visibility specifiers (cpp)
+" set nowrap           					" no wrapping for you today
+" set colorcolumn=110
+" highlight ColorColumn ctermbg=darkblue
+set hlsearch
+set incsearch
+colorscheme slate
+set comments=sl:/*,mb:\ *,elx:\ */ 		" smarter comments
+filetype plugin on
+set undofile
+set backspace=indent,eol,start
+" set cursorline
+set scrolloff=4      					" up/down 4 lines when on edge
+set wildmenu         					" tab completion
+
+" make vim remember last cursor position when editing file
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" --------------------------------------------------------------|======|======*
+" Abbrevations
+" --------------------------------------------------------------|======|======*
+iab main int main() {<CR>return 0;<CR>}
+iab scout std::cout << << std::endl<ESC>12hi
+iab serr std::cerr << << std::endl<ESC>12hi
+
+" Help delete character if it is 'empty space'
+" stolen from Vim manual
+function! Eatchar()
+  let c = nr2char(getchar())
+  return (c =~ '\s') ? '' : c
+endfunction
+
+" Replace abbreviation if we're not in comment or other unwanted places
+" stolen from Luc Hermitte's excellent http://hermitte.free.fr/vim/
+function! MapNoContext(key, seq)
+  let syn = synIDattr(synID(line('.'),col('.')-1,1),'name')
+  if syn =~? 'comment\|string\|character\|doxygen'
+    return a:key
+  else
+    exe 'return "' .
+    \ substitute( a:seq, '\\<\(.\{-}\)\\>', '"."\\<\1>"."', 'g' ) . '"'
+  endif
+endfunction
+
+" Create abbreviation suitable for MapNoContext
+function! Iab (ab, full)
+  exe "iab <silent> <buffer> ".a:ab." <C-R>=MapNoContext('".
+    \ a:ab."', '".escape (a:full.'<C-R>=Eatchar()<CR>', '<>\"').
+    \"')<CR>"
+endfunction
+
+call Iab('#d', '#define ')
+call Iab('#i', '#include <><Left>')
+call Iab('#I', '#include ""<Left>')
+call Iab('printf', 'printf ("\n");<C-O>?\<CR>')
+" call Iab('if', 'if () {<CR>}<Left><C-O>?)<CR>')
+" call Iab('for', 'for (;;) {<CR>}<C-O>?;;<CR>')
+" call Iab('while', 'while () {<CR>}<C-O>?)<CR>')
+" call Iab('else', 'else<CR>{<CR>x;<CR>}<C-O>?x;<CR><Del><Del>')
+" call Iab('ifelse', 'if () {<CR>}<CR>else<CR>{<CR>}<C-O>?)<CR>')
+call Iab('intmain', 'int main (int argc, char **argv) '.
+ \ '{<CR>x;<CR>return 0;<CR>}<CR><C-O>?x;<CR><Del><Del>')
+call Iab('cppinc', '#include <vector><CR>#include <map><CR>#include <string><CR><CR>')
+call Iab('cls', 'class XDRAGON {<CR>public:<CR>XDRAGON(...)<CR>: ...<CR>{}<CR><CR>private:<CR>...<CR>};')
+" call Iab('scout', 'std::cout <<  << std::endl;<Left>13')
+" call Iab('if', 'if () {<CR>}<Left><C-O>?)<CR>')
+call Iab('switch', 'switch(I_LIKE_TRAINS) {<CR>' .
+		\ 'case OPEN:<CR>break;<CR>' .
+		\ 'default:<CR>}')
+
+" LLVM abbrevations
+call Iab('llvmint','#define LLVM_INT(x) ConstantFP::get(TheContext, APInt(32, x))')
+call Iab('llvmfloat','#define LLVM_FLOAT(x) ConstantFP::get(TheContext, APFloat(x))')
+call Iab('llvmcall','Builder.CreateCall(Function*, vector<Value*>, label);')
+call Iab('llvmbb','BasicBlock* bb = BasicBlock::Create(TheContext, label, ADDTOFUNCTION?);')
+call Iab('llvmftype','FunctionType* fType = FunctionType::get(Type::getDoubleTy(TheContext), vector<Type*>, false);')
+call Iab('llvmfcreate','Function* f = Function::Create(fType, Function::ExternalLinkage, FUNCTION_NAME, TheModule.get());')
+call Iab('llvminc', '#include "llvm/IR/IRBuilder.h"<CR>' .
+		\ '#include "llvm/IR/Module.h"<CR>' .
+		\ '#include "llvm/IR/Verifier.h"<CR>' .
+		\ '#include "llvm/IR/LegacyPassManager.h"<CR>' .
+		\ '#include "llvm/Transforms/Scalar.h"<CR>' .
+		\ '#include "llvm/Support/TargetSelect.h"<CR><CR>')
+
+" --------------------------------------------------------------|======|======*
+" handling completions
+" --------------------------------------------------------------|======|======*
+set completeopt=menu " completions in menus
+set completeopt=menu,longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+set omnifunc=syntaxcomplete#Complete
+" au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
+
