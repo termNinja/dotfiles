@@ -16,11 +16,11 @@
 " 		 	                      l/             _) )_          \I
 " 		 	                                     `\ /'
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-let g:username = "your username"
-let g:email = "your mail"
+let g:username = "termninja" 				" whoami?
+let g:email = "your@email.comes.here" 		" howtogetme?
 
-" Leader button
-let mapleader="\<Space>"
+let mapleader="\<Space>" 					" set the leading dragon!
+set shell=bash 								" avoid problems if using fish shell
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Vundle init (my plugin manager)
@@ -82,8 +82,8 @@ Plugin 'flazz/vim-colorschemes'				" lots of colorschemes
 Plugin 'chriskempson/base16-vim' 			" Lots of base16 themes
 Plugin 'justinmk/vim-syntax-extra' 			" Support for bison, flex and c
 Plugin 'w0ng/vim-hybrid' 					" Hybrid theme
-Plugin 'roosta/srcery' 						" Interesting dark theme (no term support)
 Plugin 'octol/vim-cpp-enhanced-highlight' 	" better synt.col.supp for cpp
+Plugin 'tyrannicaltoucan/vim-deep-space' 	" dark theme
 Plugin 'vim-airline/vim-airline'			" vim airline statusbar
 Plugin 'vim-airline/vim-airline-themes'		" themes for airline
 Plugin 'airblade/vim-gitgutter' 			" git indicator about file changes
@@ -147,6 +147,7 @@ set tabstop=4
 set t_Co=256								" sets 256 colors onto term
 set undofile 								" make undo files
 set cindent
+set cinoptions+=g0 							" don't indent cpp visibility specifiers
 set smartindent
 set autoindent
 set backspace=indent,eol,start
