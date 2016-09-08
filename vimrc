@@ -17,7 +17,7 @@
 " 		 	                                     `\ /'
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 let g:username = "termninja" 				" whoami?
-let g:email = "your@email.comes.here" 		" howtogetme?
+let g:email = "your@email.goes.here" 		" howtogetme?
 
 let mapleader="\<Space>" 					" set the leading dragon!
 set shell=bash 								" avoid problems if using fish shell
@@ -90,7 +90,7 @@ Plugin 'airblade/vim-gitgutter' 			" git indicator about file changes
 Plugin 'hdima/python-syntax' 				" better synt.col.supp. for py
 Plugin 'vim-scripts/CSApprox' 				" convert theme to terminal colors
 Plugin 'mhinz/vim-startify' 				" fancy startscreen for vim
-" Plugin 'miyakogi/conoline.vim' 			" smart highlight of current line
+" Plugin 'miyakogi/conoline.vim' 			" (not so) smart highlight of current line
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Additional plugins
@@ -156,6 +156,13 @@ set scrolloff=6      						" Always show a few lines below and above the current
 set wildmenu         						" Tab completion for the commands
 set completeopt=menu 						" Completions in menus
 set nowrap           						" Never wrap the text
+
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+" Abbrevs
+" =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+iab reurn return
+iab inclue include
+iab updaed updated
 
 " make vim remember last cursor position when editing file
 if has("autocmd")
