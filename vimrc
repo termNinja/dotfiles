@@ -1,43 +1,43 @@
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-" 		 	                                    /   \
-" 		 	   _                        )      ((   ))     (
-" 		 	  (@)                      /|\      ))_((     /|\
-" 		 	  |-|                     / | \    (/\|/\)   / | \                      (@)
-" 		 	  | | -------------------/--|-voV---\`|'/--Vov-|--\---------------------|-|
-" 		 	  |-|                         '^`   (o o)  '^`                          | |
-" 		 	  | |                               `\Y/'                               |-|
-" 		 	  |-|                                                                   | |
-" 		 	  | | 					2016 termninja github.com/termninja             |-|
-" 		 	  |-|                                                                   | |
-" 		 	  | |                                                                   |-|
-" 		 	  |_|___________________________________________________________________| |
-" 		 	  (@)                 l   /\ /      ( (       \ /\   l                `\|-|
-" 		 	                      l /   V        \ \       V   \ l                  (@)
-" 		 	                      l/             _) )_          \I
-" 		 	                                     `\ /'
+"                                               /   \
+"              _                        )      ((   ))     (
+"             (@)                      /|\      ))_((     /|\
+"             |-|                     / | \    (/\|/\)   / | \                      (@)
+"             | | -------------------/--|-voV---\`|'/--Vov-|--\---------------------|-|
+"             |-|                         '^`   (o o)  '^`                          | |
+"             | |                               `\Y/'                               |-|
+"             |-|                                                                   | |
+"             | |                   2016 termninja github.com/termninja             |-|
+"             |-|                                                                   | |
+"             | |                                                                   |-|
+"             |_|___________________________________________________________________| |
+"             (@)                 l   /\ /      ( (       \ /\   l                `\|-|
+"                                 l /   V        \ \       V   \ l                  (@)
+"                                 l/             _) )_          \I
+"                                                `\ /'
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-let g:username = "termninja" 				" whoami?
-let g:email = "your@email.goes.here" 		" howtogetme?
+let g:username = "termninja"                " whoami?
+let g:email = "nmicovic@outlook.com"        " howtogetme?
 
-let mapleader="\<Space>" 					" set the leading dragon!
-set shell=bash 								" avoid problems if using fish shell
+let mapleader="\<Space>"                    " set the leading dragon!
+set shell=bash                              " avoid problems if using fish shell
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Vundle init (my plugin manager)
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-set nocompatible              				" be iMproved
+set nocompatible                            " be iMproved
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-" 										*-*-*-*-*-*-*-*-*
-" 										*-PLUGINS START-*
-" 										*-*-*-*-*-*-*-*-*
+"                                       *-*-*-*-*-*-*-*-*
+"                                       *-PLUGINS START-*
+"                                       *-*-*-*-*-*-*-*-*
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " YouCompleteMe (with relevant tweaks)
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-Plugin 'Valloric/YouCompleteMe'				" you complete me baby
+Plugin 'Valloric/YouCompleteMe'             " you complete me baby
 let g:ycm_key_list_select_completion = ['<Down>','<c-k>']
 let g:ycm_key_list_previous_completion = ['<Up>','<c-j>']
 
@@ -59,17 +59,19 @@ let g:ycm_always_populate_location_list = 1
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
 nnoremap <C-]> <Esc>:YcmCompleter GoToDefinitionElseDeclaration<CR>|
 inoremap <C-]> <Esc>:YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <Leader>f <Esc>:YcmCompleter FixIt<CR>
 
 " ---------------------------------------------------------------------------------------
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Autocomplete and similar features
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " ---------------------------------------------------------------------------------------
+Plugin 'tkztmk/vim-vala'
 Plugin 'm2mdas/phpcomplete-extended'
 Plugin 'm2mdas/phpcomplete-extended-laravel'
 Plugin 'jwalton512/vim-blade'
-" Plugin 'ternjs/tern_for_vim'				" tern complete for javascript (I use YCM)
-" Plugin 'scrooloose/syntastic'				" Syntastic syntax checker
+" Plugin 'ternjs/tern_for_vim'              " tern complete for javascript (I use YCM)
+" Plugin 'scrooloose/syntastic'             " Syntastic syntax checker
 
 " Use completephp plugin for PHP autocomplete
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
@@ -78,41 +80,42 @@ autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Visual
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-Plugin 'flazz/vim-colorschemes'				" lots of colorschemes
-Plugin 'chriskempson/base16-vim' 			" Lots of base16 themes
-Plugin 'justinmk/vim-syntax-extra' 			" Support for bison, flex and c
-Plugin 'w0ng/vim-hybrid' 					" Hybrid theme
-Plugin 'octol/vim-cpp-enhanced-highlight' 	" better synt.col.supp for cpp
-Plugin 'tyrannicaltoucan/vim-deep-space' 	" dark theme
-Plugin 'vim-airline/vim-airline'			" vim airline statusbar
-Plugin 'vim-airline/vim-airline-themes'		" themes for airline
-Plugin 'airblade/vim-gitgutter' 			" git indicator about file changes
-Plugin 'hdima/python-syntax' 				" better synt.col.supp. for py
-Plugin 'vim-scripts/CSApprox' 				" convert theme to terminal colors
-Plugin 'mhinz/vim-startify' 				" fancy startscreen for vim
-" Plugin 'miyakogi/conoline.vim' 			" (not so) smart highlight of current line
+Plugin 'flazz/vim-colorschemes'             " lots of colorschemes
+Plugin 'chriskempson/base16-vim'            " Lots of base16 themes
+Plugin 'justinmk/vim-syntax-extra'          " Support for bison, flex and c
+Plugin 'w0ng/vim-hybrid'                    " Hybrid theme
+Plugin 'octol/vim-cpp-enhanced-highlight'   " better synt.col.supp for cpp
+Plugin 'tyrannicaltoucan/vim-deep-space'    " dark theme
+Plugin 'vim-airline/vim-airline'            " vim airline statusbar
+Plugin 'vim-airline/vim-airline-themes'     " themes for airline
+Plugin 'airblade/vim-gitgutter'             " git indicator about file changes
+Plugin 'hdima/python-syntax'                " better synt.col.supp. for py
+Plugin 'vim-scripts/CSApprox'               " convert theme to terminal colors
+Plugin 'mhinz/vim-startify'                 " fancy startscreen for vim
+" Plugin 'miyakogi/conoline.vim'            " smart highlight of current line
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Additional plugins
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-Plugin 'aperezdc/vim-template' 				" File templates
-Plugin 'rdnetto/YCM-Generator'				" YCM flag generator
-" Plugin 'easymotion/vim-easymotion'			" easymotion <3
-Plugin 'scrooloose/nerdtree'				" Nerdtree file browser
-Plugin 'scrooloose/nerdcommenter'			" Commenting engine
-Plugin 'shime/vim-livedown'					" md preview, invoke with :LivedownPreview
-Plugin 'Shougo/vimproc' 					" asynchronous library (used by other plugins)
+Plugin 'aperezdc/vim-template'              " File templates
+Plugin 'rdnetto/YCM-Generator'              " YCM flag generator
+" Plugin 'easymotion/vim-easymotion'            " easymotion <3
+Plugin 'scrooloose/nerdtree'                " Nerdtree file browser
+Plugin 'scrooloose/nerdcommenter'           " Commenting engine
+Plugin 'shime/vim-livedown'                 " md preview, invoke with :LivedownPreview
+Plugin 'Shougo/vimproc'                     " asynchronous library (used by other plugins)
 " Plugin 'Shougo/unite.vim'
-Plugin 'ctrlpvim/ctrlp.vim' 				" fuzzy search inspired by sublime
-Plugin 'terryma/vim-multiple-cursors' 		" multiple cursors like Sublime Editor
-Plugin 'reedes/vim-wordy' 					" check words in dictionary
+Plugin 'ctrlpvim/ctrlp.vim'                 " fuzzy search inspired by sublime
+Plugin 'terryma/vim-multiple-cursors'       " multiple cursors like Sublime Editor
+Plugin 'reedes/vim-wordy'                   " check words in dictionary
+Plugin 'jiangmiao/auto-pairs'               " smart brackets
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Code snippets with relevant configurations
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'ervandew/supertab' 					" handles conflicts betweens snippets and YCM
+Plugin 'ervandew/supertab'                  " handles conflicts betweens snippets and YCM
 
 " Trigger configuration. Do not use <tab> if you use 'Valloric/YouCompleteMe'.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -124,60 +127,72 @@ let g:UltiSnipsEditSplit="vertical"
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-"  										*-*-*-*-*-*-*-*
-"  										*-PLUGINS END-*
-"  										*-*-*-*-*-*-*-*
+"                                       *-*-*-*-*-*-*-*
+"                                       *-PLUGINS END-*
+"                                       *-*-*-*-*-*-*-*
 "
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " My configz
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " good themes: base16-atelierdune base16-atelierforest, badwolf, base16-summerfruit, hybrid, onedark
 set background=dark
+set t_Co=256                                " sets 256 colors onto term
 colorscheme onedark
-let g:airline_theme="behelit"
-syntax on 									" give us some syntax highlighting!
+let g:airline_theme="behelit"               " tomorrow is awesome :D
+syntax on                                   " give us some syntax highlighting!
 filetype on
 filetype plugin on
-set number 									" show line numbers
-set hlsearch 								" highligh search results
-set incsearch 								" shows results as you type the search
-set shiftwidth=4
+set number                                  " show line numbers
+set hlsearch                                " highligh search results
+set incsearch                               " shows results as you type the search
 set laststatus=2
-set tabstop=4
-set t_Co=256								" sets 256 colors onto term
-set undofile 								" make undo files
-set cindent
-set cinoptions+=g0 							" don't indent cpp visibility specifiers
-set smartindent
-set autoindent
+set undofile                                " make undo files
 set backspace=indent,eol,start
 set cursorline
-set scrolloff=6      						" Always show a few lines below and above the current one
-set wildmenu         						" Tab completion for the commands
-set completeopt=menu 						" Completions in menus
-set nowrap           						" Never wrap the text
+set scrolloff=6                             " Always show a few lines below and above the current one
+set wildmenu                                " Tab completion for the commands
+set completeopt=menu                        " Completions in menus
+set nowrap                                  " Never wrap the text
+
+" indenting
+set shiftwidth=4
+set expandtab
+set softtabstop=4
+set smartindent
+set cindent
+set cinoptions+=g0                          " don't indent cpp visibility specifiers
+set autoindent
+set tabstop=4
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Abbrevs
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 iab reurn return
+iab retrn return
+iab reutrn return
 iab inclue include
-iab updaed updated
+iab :; ::
+iab fancycpp // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+au FileType cpp ia cin std::cin
+au FileType cpp ia cout std::cout
+au FileType cpp ia cerr std::cerr
+au FileType cpp ia endl std::endl
 
 " make vim remember last cursor position when editing file
 if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " GUI specific settings
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 if has('gui_running')
-	set autochdir
-	set guifont=Terminess\ Powerline\ 11
-	let &t_SI = "\<Esc>[5 q"
-	let &t_EI = "\<Esc>[1 q"
-	colorscheme onedark
+    set autochdir
+    set guifont=Terminess\ Powerline\ 11
+    let &t_SI = "\<Esc>[5 q"
+    let &t_EI = "\<Esc>[1 q"
+    colorscheme onedark
 endif
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -207,7 +222,7 @@ set wildignore+=*.pyc,*.class,*.jar,*~
 set wildignore+=.git,.svn
 set wildignore+=project/target/**,target/**
 set wildignore+=GPATH,GRTAGS,GSYMS,GTAGS
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip		" files to be ignored when searching
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip        " files to be ignored when searching
 
 " -------------------------------------------------------------------------------------------------
 " Easymotion settings
@@ -268,8 +283,8 @@ let g:ctrlp_working_path_mode = 'wr'
 " -------------------------------------------------------------------------------------------------
 " Settings for cpp syntax highlgher
 " -------------------------------------------------------------------------------------------------
-let g:cpp_class_scope_highlight = 1 			" enable class scope highlighting
-let g:cpp_experimental_template_highlight = 1 	" enable template highlight
+let g:cpp_class_scope_highlight = 1             " enable class scope highlighting
+let g:cpp_experimental_template_highlight = 1   " enable template highlight
 
 " -------------------------------------------------------------------------------------------------
 " Settings for python syntax highlighter
@@ -292,17 +307,20 @@ map  <S-Left>    <Esc>:tabprev<CR>
 imap <S-Left>    <Esc>:tabprev<CR>
 
 " additional binds for saving, quiting...
-nnoremap <Leader>s    <Esc>:wa<CR>|   			"" Save everything
+nnoremap <Leader>s    <Esc>:wa<CR>|             "" Save everything
 inoremap <S-Leader>s  <Esc>:wa<CR>
 nnoremap <S-Leader>s  <Esc>:wa<CR>
 
-nnoremap <Leader>q    <Esc>:q<CR>|    			"" Quit vim
+nnoremap <Leader>q    <Esc>:q<CR>|              "" Quit vim
 inoremap <S-Leader>q  <Esc>:q<CR>
 nnoremap <S-Leader>q  <Esc>:q<CR>
 
-nnoremap <Leader>x    <Esc>:x<CR>|    			"" Save and quit vim
+nnoremap <Leader>x    <Esc>:x<CR>|              "" Save and quit vim
 inoremap <S-Leader>x  <Esc>:x<CR>
 nnoremap <S-Leader>x  <Esc>:x<CR>
+
+" goodbye trailling whitespace
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " reloading vimrc
 nnoremap <Leader>rc :source ~/.vimrc<CR>
@@ -319,11 +337,10 @@ set pastetoggle=<F2>
 map <Leader>hl :nohlsearch<CR>
 
 " toggle file browser
-map <Leader>f :NERDTreeToggle<CR>
+map <Leader>l :NERDTreeToggle<CR>
 
 
 " Compiling, checking errors etc.
-nnoremap <F5> :w<CR> :make<CR>:! ./dragon<CR>
 nnoremap <Leader>c :! make clean<CR>
 nnoremap <Leader>e :copen<CR>
 "map <Leader>x :clo<CR>
