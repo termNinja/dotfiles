@@ -4,7 +4,7 @@
 ! "Enabled modi" Set from: Default
 ! rofi.modi:                           window,run,ssh
 ! "Window opacity" Set from: Default
-rofi.opacity:                        80
+rofi.opacity:                        95
 ! "Window width" Set from: Default
 rofi.width:                          50
 ! "Number of lines" Set from: Default
@@ -26,7 +26,7 @@ rofi.color-window:                   #212121,#002b36
 ! "Location on screen" Set from: Default
 ! rofi.location:                       0
 ! "Padding" Set from: Default
-rofi.padding:                        150
+rofi.padding:                        20
 ! "Y-offset relative to location" Set from: Default
 ! rofi.yoffset:                        0
 ! "X-offset relative to location" Set from: Default
