@@ -16,8 +16,8 @@
 "                                 l/             _) )_          \I
 "                                                `\ /'
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-let g:username = "termninja"                " whoami?
-let g:email = "nmicovic@outlook.com"        " howtogetme?
+let g:username = "ziTermNinja"              " whoami?
+let g:email = "fancyemailhere"              " howtogetme?
 
 let mapleader="\<Space>"                    " set the leading dragon!
 set shell=bash                              " avoid problems if using fish shell
@@ -67,6 +67,7 @@ nnoremap <Leader>f <Esc>:YcmCompleter FixIt<CR>
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " ---------------------------------------------------------------------------------------
 Plugin 'tkztmk/vim-vala'
+Plugin 'jvirtanen/vim-octave'               " octave syntax highlight
 Plugin 'm2mdas/phpcomplete-extended'
 Plugin 'm2mdas/phpcomplete-extended-laravel'
 Plugin 'jwalton512/vim-blade'
