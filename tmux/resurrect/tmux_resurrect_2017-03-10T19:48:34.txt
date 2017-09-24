@@ -1,0 +1,6 @@
+pane	☯	1	:vim	0	:-	0	:/home/termninja/matf/nastava/oop/moji_materijali/04_klase	1	vim	:vim 04.klase.tex
+pane	☯	2	:fish	1	:*	0	:/home/termninja/matf/nastava/oop/moji_materijali/04_klase	1	fish	:
+pane	☯	2	:fish	1	:*	1	:/home/termninja/matf/nastava/oop/moji_materijali/04_klase	0	fish	:
+window	☯	1	0	:-	c043,170x45,0,0,6
+window	☯	2	1	:*	5a46,170x45,0,0[170x32,0,0,11,170x12,0,33,12]
+state	☯	

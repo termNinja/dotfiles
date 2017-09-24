@@ -1,0 +1,9 @@
+pane	ip	1	:literatura	0	:	0	:/home/termninja/matf/master_studije/istrazivanje_podataka/literatura	1	fish	:
+pane	ip	2	:mira	1	:*	0	:/home/termninja/matf/master_studije/istrazivanje_podataka/vezbe/12_pca	1	fish	:
+pane	ip	3	:moj kod	0	:-	0	:/home/termninja/matf/master_studije/istrazivanje_podataka/my_exercises/02_pca	1	fish	:
+pane	ip	4	:[tmux]	0	:	0	:/home/termninja/matf/master_studije/istrazivanje_podataka/vezbe/12_pca	1	fish	:
+window	ip	1	0	:	c03d,170x45,0,0,0
+window	ip	2	1	:*	c03e,170x45,0,0,1
+window	ip	3	0	:-	c03f,170x45,0,0,2
+window	ip	4	0	:	c042,170x45,0,0,5
+state	ip	

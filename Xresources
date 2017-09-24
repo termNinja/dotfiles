@@ -12,7 +12,8 @@ rofi.lines:                          15
 ! "Number of columns" Set from: Default
 rofi.columns:                        1
 ! "Font to use" Set from: Default
-rofi.font:                           Terminess Powerline 11
+rofi.font:                           xos4 Terminess Powerline 11
+!rofi.font:                           Panic Sans 10
 ! "Color scheme for normal row" Set from: Default
 rofi.color-normal:                   #212121,#1793d1,#212121,#586e75,#eee8d5
 ! "Color scheme for urgent row" Set from: Default

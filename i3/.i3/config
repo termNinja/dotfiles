@@ -201,8 +201,7 @@ bindsym $mod+d exec rofi -show run
 
 # Start processes
 # exec --no-startup-id feh --bg-scale /home/termninja/Pictures/arch/distros_by_lagen123-d9n20i1.jpg
-#exec --no-startup-id feh --bg-scale ~/Pictures/arch/arch-wall.jpg
-exec --no-startup-id feh --bg-scale ~/Pictures/artificial_intelligence/what-is-machine-learning.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/arch/arch-wall.jpg
 exec --no-startup-id nm-applet
 exec --no-startup-id $terminal
 exec compton -f --config /home/termninja/.config/compton.conf

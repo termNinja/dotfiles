@@ -1,0 +1,18 @@
+pane	ar	1	:editor	1	:*	0	:/home/termninja/matf/master_studije/automatsko_rezonovanje/my_exercises/08_first_order_logic	1	fish	:
+pane	ar	2	:build	0	:-	0	:/home/termninja/matf/master_studije/automatsko_rezonovanje/my_exercises/08_first_order_logic/build	1	fish	:
+pane	ar-res	1	:fish	1	:*	0	:/home/termninja/matf/master_studije/automatsko_rezonovanje/vezbe	1	fish	:
+pane	p1	1	:radovi	1	:*	0	:/home/termninja/matf/nastava/p1_praktikum/kolokvijumi_ispiti/jun2017/103/P1_Jun1_20017_3_SasaLeskur_mr14365	1	fish	:
+pane	p1	1	:radovi	1	:*	1	:/home/termninja/matf/nastava/p1_praktikum/kolokvijumi_ispiti/jun2017/103/P1_Jun1_20017_3_SasaLeskur_mr14365	0	fish	:
+pane	p1	2	:test primeri	0	:	0	:/home/termninja/matf/nastava/p1_praktikum/kolokvijumi_ispiti/jun2017/testovi	1	fish	:
+pane	p1	3	:tester	0	:	0	:/home/termninja/matf/nastava/p1_praktikum/kolokvijumi_ispiti/jun2017/tester_v1.10	1	fish	:
+pane	p1	4	:rezultati	0	:	0	:/home/termninja/matf/nastava/p1_praktikum/kolokvijumi_ispiti/jun2017/rezultati/103	1	fish	:
+pane	p1	5	:fish	0	:-	0	:/home/termninja/matf/nastava/p1_praktikum/kolokvijumi_ispiti/jun2017/TEST	1	fish	:
+window	ar	1	1	:*	c03d,170x45,0,0,0
+window	ar	2	0	:-	c03f,170x45,0,0,2
+window	ar-res	1	1	:*	c03e,170x45,0,0,1
+window	p1	1	1	:*	49d2,170x45,0,0{85x45,0,0,3,84x45,86,0,6}
+window	p1	2	0	:	c041,170x45,0,0,4
+window	p1	3	0	:	c042,170x45,0,0,5
+window	p1	4	0	:	c044,170x45,0,0,7
+window	p1	5	0	:-	c045,170x45,0,0,8
+state	p1	
