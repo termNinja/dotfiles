@@ -83,7 +83,7 @@ Plugin 'jwalton512/vim-blade'
 Plugin 'derekwyatt/vim-fswitch'             " switches between source/header
 Plugin 'derekwyatt/vim-protodef'            " generates cpp definitions
 
-Plugin 'python-mode/python-mode'            " full Python development plugin
+"Plugin 'python-mode/python-mode'            " full Python development plugin
 Plugin 'vim-scripts/indentpython.vim'       " help with python indenting
 
 " Markdown
@@ -119,10 +119,16 @@ Plugin 'sosz/vim-darcula-theme'             " jetbrains dark theme
 Plugin 'liuchengxu/space-vim-dark'          " spacemacs theme
 Plugin 'KeitaNakamura/neodark.vim'          " onedark inspired dark theme
 Plugin 'jdkanani/vim-material-theme'        " material style onedark inspired theme
+Plugin 'sonph/onehalf'                      " onedark clone
+Plugin 'jacoborus/tender.vim'               " cool dark theme
+Plugin 'nightsense/nemo'
+Plugin 'yuttie/hydrangea-vim'
+Plugin 'hzchirs/vim-material'
 
 " New
 Plugin 'exitface/synthwave.vim'
 Plugin 'tyrannicaltoucan/vim-quantum'
+Plugin 'nightsense/carbonized'
 
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -140,6 +146,10 @@ Plugin 'airblade/vim-gitgutter'             " git indicator about file changes
 Plugin 'Valloric/MatchTagAlways'            " visual match html tags
 Plugin 'myusuf3/numbers.vim'                " intelligent toggle of line numbers
 
+Plugin 'ap/vim-css-color'                   " show colors while editing css files
+Plugin 'othree/html5.vim'
+Plugin 'nathanaelkane/vim-indent-guides'    " show indent lines
+
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Additional plugins
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -156,7 +166,7 @@ Plugin 'terryma/vim-multiple-cursors'       " multiple cursors like Sublime Edit
 Plugin 'reedes/vim-wordy'                   " check words in dictionary
 Plugin 'jiangmiao/auto-pairs'               " smart brackets
 Plugin 'alvan/vim-closetag'                 " autoclose html tags
-Plugin 'lervag/vimtex'                      " vimtex plugin to extend Latex support
+"Plugin 'lervag/vimtex'                      " vimtex plugin to extend Latex support
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Code snippets with relevant configurations
@@ -191,12 +201,13 @@ set termguicolors
 set background=dark
 "let g:CSApprox_attr_map = { 'bold' : 'bold', 'italic' : '', 'sp' : '' }
 
-"colorscheme onedark
+colorscheme onedark
+"colorscheme hydrangea
 "colorscheme materialtheme
 "colorscheme hybrid_reverse
 "colorscheme space-vim-dark
 "colorscheme deep-space
-colorscheme quantum
+"colorscheme quantum
 "colorscheme base16-materia
 "colorscheme neodark
 let g:neodark#background='gray' " black, gray or brown
@@ -220,8 +231,8 @@ set incsearch                               " shows results as you type the sear
 set laststatus=2
 "set undofile                                " make undo files
 set backspace=indent,eol,start
-"set cursorline
-set nocursorline
+set cursorline
+"set nocursorline
 set scrolloff=6                             " Always show a few lines below and above the current one
 set wildmenu                                " Tab completion for the commands
 set completeopt=menu                        " Completions in menus
@@ -431,6 +442,15 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <silent> vv <C-w>v
 nnoremap <silent> vh :split<cr>
 
+" Map Ctrl-Backspace to delete the previous word in insert mode.
+inoremap <C-w> <C-\><C-o>dB
+inoremap <C-BS> <C-\><C-o>db
+
+" indent config
+let g:indent_guides_guide_size = 1              " make indent lines thinner
+let g:indent_guides_enable_on_vim_startup = 1   " run indents on startup
+
+
 " ---------------------------------------------------
 " VIMUX plugin
 " ---------------------------------------------------
@@ -448,7 +468,6 @@ map <Leader>vz :VimuxZoomRunner<CR>
 " ---------------------------------------------------
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-
 " ---------------------------------------------------
 " Tmux navigator
 " ---------------------------------------------------
@@ -461,6 +480,9 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<CR>
 let g:tmux_navigator_save_on_switch = 2
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
+
+" Livedown config
+let g:livedown_browser = "chromium"
 
 " folding
 inoremap <F9> <C-O>za
