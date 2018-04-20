@@ -23,7 +23,7 @@ let mapleader="\<Space>"                        " set the leading dragon!
 set shell=bash                                  " avoid problems if using fish shell
 " ---------------------------------------------------------------------------
 call plug#begin('~/.local/share/nvim/plugged')
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'w0rp/ale'
 
 Plug 'ervandew/supertab'                  " handles conflicts betweens snippets and YCM
@@ -34,9 +34,11 @@ Plug 'ervandew/supertab'                  " handles conflicts betweens snippets 
 "Plug 'eagletmt/neco-ghc'
 "Plug 'padawan-php/deoplete-padawan'
 
-"Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-jedi',                 {'for': 'python'}
+Plug 'Shougo/neco-vim',                     {'for': 'vim'}
+Plug 'Valloric/YouCompleteMe',              "{'for': ['cpp', 'c']}
+
 Plug 'airblade/vim-gitgutter'             " git indicator about file changes
-Plug 'Valloric/YouCompleteMe'
 Plug 'derekwyatt/vim-fswitch'             " switches between source/header
 Plug 'derekwyatt/vim-protodef'            " generates cpp definitions
 
@@ -55,6 +57,7 @@ Plug 'jiangmiao/auto-pairs'               " smart brackets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'OrangeT/vim-csharp'
+Plug 'bfredl/nvim-ipy'
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 " Themes
@@ -65,6 +68,10 @@ Plug 'vim-airline/vim-airline-themes'     " themes for airline
 Plug 'yuttie/hydrangea-vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'Badacadabra/vim-archery'
+Plug 'TroyFletcher/vim-colors-synthwave'
+Plug 'colepeters/spacemacs-theme.vim'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'exitface/synthwave.vim'
 
 call plug#end()
 " ---------------------------------------------------------------------------
@@ -76,8 +83,8 @@ set termguicolors
 " Plugin config
 " ===========================================================================
 "let g:airline_theme="behelit"               " tomorrow is awesome :D
-"let g:deoplete#enable_at_startup = 1
-"let g:deoplete#enable_refresh_always = 1
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always = 1
 
 let g:ale_lint_on_text_changed = 'never'        " run ale only when we save the file
 let g:ale_lint_on_enter = 0                     " don't run linter when file is opened
@@ -98,6 +105,12 @@ let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " -------------------------------------------------------------------------------------------------
+" YCM
+" -------------------------------------------------------------------------------------------------
+"let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/.config/nvim/ycm_extra_conf.py"
+
+" -------------------------------------------------------------------------------------------------
 " Settings for cpp syntax highlgher
 " -------------------------------------------------------------------------------------------------
 let g:cpp_class_scope_highlight = 1             " enable class scope highlighting
@@ -116,6 +129,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_tabs = 1
+let g:airline_theme="synthwave"
 set ttimeoutlen=50                          " faster switch from insert to user defined completion
 
 " =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -203,8 +217,9 @@ let g:indent_guides_enable_on_vim_startup = 1   " run indents on startup
 " -------------------------------------------------------------------------------------------------
 " Editing experience
 " -------------------------------------------------------------------------------------------------
-colorscheme archery
-"colorscheme onedark
+"colorscheme archery
+"colorscheme spacevim-theme
+colorscheme space-vim-dark
 set number
 syntax on                                   " give us some syntax highlighting!
 filetype on
@@ -239,7 +254,6 @@ set foldmethod=manual
 
 " leave terminal mode by esc
 :tnoremap <Esc> <C-\><C-n>
-
 
 " make vim remember last cursor position when editing file
 if has("autocmd")
